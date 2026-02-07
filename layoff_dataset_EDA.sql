@@ -56,6 +56,15 @@ FROM layoff_staging2
 GROUP BY industry , years
 ORDER BY years , total_laid_off DESC;
 
+-- Companies with 100% layoffs --
+SELECT company ,
+`date`,
+location , 
+country ,
+percentage_laid_off
+FROM layoff_staging2
+WHERE percentage_laid_off = 1;
+
 ------------------------------------------------------------------------
 WITH  total_laid_off_per_month_cte AS
 (
