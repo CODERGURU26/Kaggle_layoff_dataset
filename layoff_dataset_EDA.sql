@@ -2,27 +2,32 @@
 
 SELECT * FROM layoff_staging2;
 
-SELECT COUNT(*) FROM layoff_staging2;
+SELECT COUNT(*)  
+FROM layoff_staging2;
 
-SELECT company ,  SUM(total_laid_off)
+SELECT company ,  
+SUM(total_laid_off) AS total_laid_off
 FROM layoff_staging2
-GROUP BY 1
-ORDER BY 2 DESC;
+GROUP BY company
+ORDER BY total_laid_off DESC;
 
-SELECT industry ,  SUM(total_laid_off)
+SELECT industry ,  
+SUM(total_laid_off) AS total_laid_off
 FROM layoff_staging2
-GROUP BY 1
-ORDER BY 2 DESC;
+GROUP BY industry
+ORDER BY total_laid_off DESC;
 
-SELECT country ,  SUM(total_laid_off)
+SELECT country ,  
+SUM(total_laid_off) AS total_laid_off 
 FROM layoff_staging2
-GROUP BY 1
-ORDER BY 2 DESC;
+GROUP BY country
+ORDER BY total_laid_off DESC;
 
-SELECT YEAR(`date`) , SUM(total_laid_off)
+SELECT YEAR(`date`) AS years , 
+SUM(total_laid_off) AS total_laid_off
 FROM layoff_staging2
-GROUP BY 1
-ORDER BY 2 DESC;
+GROUP BY years
+ORDER BY total_laid_off DESC;
 
 
 ------------------------------------------------------------------------
@@ -31,8 +36,8 @@ WITH  total_laid_off_per_month_cte AS
 	SELECT DATE_FORMAT(`date` , '%Y-%m')  AS `year_month` ,
 	SUM(total_laid_off) AS total_laid_off_per_month
 	FROM layoff_staging2
-	GROUP BY 1 
-	order by 1
+	GROUP BY 1 `year_month`
+	ORDER BY `year_month`
 )
 SELECT  `year_month`,
 total_laid_off_per_month ,
@@ -40,22 +45,15 @@ SUM(total_laid_off_per_month) OVER(ORDER BY `year_month`) AS Rolling_total_of_to
 FROM total_laid_off_per_month_cte ;
 
 ---------------------------------------------------------------------------------------------------------
-
-SELECT company , 
-YEAR(`date`) , 
-SUM(total_laid_off)
-FROM layoff_staging2
-GROUP BY 1 , 2
-ORDER BY 1; 
  
-WITH total_laid_off_per_company(comany , years , total_laid_off , percentage_laid_off) AS
+WITH total_laid_off_per_company(company , years , total_laid_off , percentage_laid_off) AS
 (
 	SELECT company , 
 	YEAR(`date`) , 
 	SUM(total_laid_off),
     AVG(percentage_laid_off)
 	FROM layoff_staging2
-	GROUP BY 1 , 2
+	GROUP BY company , years
 ) ,
 company_year_rank AS(
 SELECT *,
