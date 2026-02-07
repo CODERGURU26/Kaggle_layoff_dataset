@@ -29,6 +29,15 @@ FROM layoff_staging2
 GROUP BY years
 ORDER BY total_laid_off DESC;
 
+SELECT company,
+location ,
+country,
+`date`,
+SUM(total_laid_off) AS total_laid_off  
+FROM layoff_staging2
+WHERE total_laid_off IS NOT NULL
+GROUP BY company , location ,country, `date`
+ORDER BY total_laid_off  DESC;
 
 ------------------------------------------------------------------------
 WITH  total_laid_off_per_month_cte AS
