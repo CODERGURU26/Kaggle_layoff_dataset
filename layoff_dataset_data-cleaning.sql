@@ -165,4 +165,12 @@ SET total_laid_off =
 WHERE total_laid_off = ''
    OR percentage_laid_off = '';
 
+------------------------------------------------------------------------------------
+SELECT * 
+FROM layoff_staging2
+WHERE funds_raised = '';
 
+UPDATE layoff_staging2
+SET funds_raised = NULL
+WHERE funds_raised = '';
+--------------------------------------------------------------------------------------
