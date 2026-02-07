@@ -1,34 +1,42 @@
 -- Exploratory Data Analysis --
 
 SELECT * FROM layoff_staging2;
-
+-- Overall Counts -- 
 SELECT COUNT(*)  
 FROM layoff_staging2;
 
+
+-- total laid off per company --
 SELECT company ,  
 SUM(total_laid_off) AS total_laid_off
 FROM layoff_staging2
 GROUP BY company
 ORDER BY total_laid_off DESC;
 
+
+-- total laid off per industry --
 SELECT industry ,  
 SUM(total_laid_off) AS total_laid_off
 FROM layoff_staging2
 GROUP BY industry
 ORDER BY total_laid_off DESC;
 
+-- total laid off per ccountry -- 
 SELECT country ,  
 SUM(total_laid_off) AS total_laid_off 
 FROM layoff_staging2
 GROUP BY country
 ORDER BY total_laid_off DESC;
 
+-- total laid off yearly trend --
 SELECT YEAR(`date`) AS years , 
 SUM(total_laid_off) AS total_laid_off
 FROM layoff_staging2
 GROUP BY years
 ORDER BY total_laid_off DESC;
 
+
+-- Biggest single layoff events --
 SELECT company,
 location ,
 country,
@@ -38,6 +46,15 @@ FROM layoff_staging2
 WHERE total_laid_off IS NOT NULL
 GROUP BY company , location ,country, `date`
 ORDER BY total_laid_off  DESC;
+
+
+-- Industry layoffs over time --
+SELECT industry,
+YEAR(`date`) AS years,
+SUM(total_laid_off) AS total_laid_off  
+FROM layoff_staging2
+GROUP BY industry , years
+ORDER BY years , total_laid_off DESC;
 
 ------------------------------------------------------------------------
 WITH  total_laid_off_per_month_cte AS
