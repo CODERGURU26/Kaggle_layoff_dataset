@@ -152,6 +152,17 @@ AND percentage_laid_off IS NULL;
 
 
 
+SELECT *
+FROM layoff_staging2 
+WHERE total_laid_off  = ''
+OR percentage_laid_off = '';
 
+UPDATE layoff_staging2
+SET total_laid_off =
+        CASE WHEN total_laid_off = '' THEN NULL ELSE total_laid_off END,
+    percentage_laid_off =
+        CASE WHEN percentage_laid_off = '' THEN NULL ELSE percentage_laid_off END
+WHERE total_laid_off = ''
+   OR percentage_laid_off = '';
 
 
