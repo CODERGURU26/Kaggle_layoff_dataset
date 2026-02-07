@@ -174,3 +174,13 @@ UPDATE layoff_staging2
 SET funds_raised = NULL
 WHERE funds_raised = '';
 --------------------------------------------------------------------------------------
+
+SELECT * 
+FROM layoff_staging2
+WHERE stage IS NULL;
+
+UPDATE layoff_staging2 
+SET stage = 'Unknown'
+WHERE stage IS NULL;
+
+-----------------------------------------------------------------------------------------
