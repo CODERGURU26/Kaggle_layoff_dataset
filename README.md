@@ -236,16 +236,6 @@ This project demonstrates proficiency in:
 - Temporal data analysis
 - Data standardization and normalization
 
-## 📌 Future Enhancements
-
-Potential extensions to this analysis:
-- [ ] Visualize trends using Python/R (matplotlib, ggplot2)
-- [ ] Build interactive dashboards (Tableau, Power BI)
-- [ ] Predictive modeling for layoff trends
-- [ ] Sentiment analysis on source articles
-- [ ] Integration with economic indicators
-- [ ] Correlation analysis with stock performance
-
 ## 📄 Data Sources
 
 The dataset includes layoffs tracked from various news sources and company announcements. Each record includes a source URL for verification.
@@ -261,9 +251,6 @@ The dataset includes layoffs tracked from various news sources and company annou
 
 This project demonstrates SQL data analysis capabilities focusing on data cleaning, transformation, and exploratory analysis.
 
-## 📝 License
-
-This project is available for educational and analytical purposes.
 
 ---
 
