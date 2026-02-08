@@ -251,6 +251,11 @@ The dataset includes layoffs tracked from various news sources and company annou
 
 This project demonstrates SQL data analysis capabilities focusing on data cleaning, transformation, and exploratory analysis.
 
+**Gururaj Krishna Sharma**
+
+- 📧 Email: [guruuu2468@gmail.com](mailto:guruuu2468@gmail.com)
+- 💼 LinkedIn: [Gururaj Krishna Sharma](https://www.linkedin.com/in/gururaj-krishna-sharma)
+- 💻 GitHub: [@CODERGURU26](https://github.com/CODERGURU26)
 
 ---
 
