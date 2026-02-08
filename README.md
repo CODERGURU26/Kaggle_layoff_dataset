@@ -88,10 +88,8 @@ The dataset contains information about company layoffs across various industries
 #### 2. **Temporal Analysis**
 
 **Monthly Rolling Totals**:
-```sql
--- Calculate cumulative layoffs over time
--- Shows escalating impact month-over-month
-```
+- Calculate cumulative layoffs over time
+- Shows escalating impact month-over-month
 
 **Granular Event Analysis**:
 - Company-specific layoff events by date and location
